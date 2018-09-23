@@ -39,8 +39,11 @@ $(".button-display").on("click", function() {
             // Creating a variable and setting it equal to an image element
             var placeImage = $("<img>");
             //Adding an attribute to the images
-            placeImage.attr("src", results[i].images.fixed_height.url);
-            // prepending the p tag to the gifDiv
+            placeImage.attr("src", results[i].images.fixed_height_still.url);
+            placeImage.attr("data-still", results[i].images.fixed_height_still.url);
+            placeImage.attr("data-animate", results[i].images.fixed_height.url);
+            placeImage.attr("data-state", "still");
+            placeImage.addClass("gif");
             gifDiv.prepend(placeImage);
             // prepending the placeImage to the gifDiv
             gifDiv.prepend(p);
@@ -51,3 +54,16 @@ $(".button-display").on("click", function() {
           }
         });
     });
+
+    $(".gif").on("click", function() {
+        // 
+        var state = $(this).attr("data-state");
+        
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+      });
