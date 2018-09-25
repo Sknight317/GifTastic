@@ -53,17 +53,29 @@ $(".button-display").on("click", function() {
             placeImage.attr("data-state", 'still')
             placeImage.addClass("image");
             // prepending the placeImage to the gifDiv
+            
             gifDiv.prepend(placeImage);
             
             gifDiv.prepend(p);
             gifDiv.prepend(titleTag);
+            var Favorites = $("<button>").addClass("Favbutton").text("Add to Favorites!");
+            gifDiv.prepend(Favorites);
             // Adding a class to the gifdiv
             gifDiv.addClass("imagediv");
             //prepending each gifDiv to the images container
             $("#images").prepend(gifDiv);
-
+            // Adding a border style to the images div
             $("#images").css({ "border-style": "outset" });
+            // 
+            
+
           }
+          $(".Favbutton").on("click", function() {
+            alert("hello");
+            var Image = $(this);
+            console.log(Image);
+            $("#Favorites").prepend(Image);
+          });
         });
     });
   }

@@ -10,11 +10,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.button-display:hover, #submit:hover {
+.button-display:hover, #submit:hover, .Favbutton:hover {
     cursor: pointer;
-    background-color: rgb(22, 22, 94);
+    background-color: rgb(4, 144, 231);
 }
-.button-display:focus, #submit:focus {
+.button-display:focus, #submit:focus, .Favbutton:outline {
     outline: 0;
 }
 
@@ -30,14 +30,26 @@
     margin: 20px;
     background-color: rgb(122, 189, 231);
     border-radius:  15px 50px 15px 50px ;
-    border: 2px solid rgb(62, 105, 133);
+    border: 2px solid rgb(62, 105, 133); 
+    
     
     
 }
-#addAnimal {
+#container {
     width: 25%;
     float: right;
+}
+#addAnimal {
+    
     margin-right: 20px;
+    background-color: rgb(219, 226, 231);
+    padding: 20px;
+    border-radius:  15px 50px 15px 50px ;
+    border-style: outset;
+}
+#Favorites {
+    
+    margin: 20px 20px 0px 0px;
     background-color: rgb(219, 226, 231);
     padding: 20px;
     border-radius:  15px 50px 15px 50px ;
@@ -73,5 +85,15 @@
     background-color: rgb(122, 189, 231);
     border-radius: 20px;
     font-size: 20px;
-    font-family: 'Roboto Condensed', sans-serif;
+    
+}
+.Favbutton {
+    padding: 2px;
+    margin: 10px;
+    color: white;
+    background-color: rgb(122, 189, 231);
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif; 
+   
 }
