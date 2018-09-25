@@ -9,6 +9,7 @@ for (var i = 0; i < topics.length; i++) {
     $("#buttons").append(topicsbtn);
 }
 
+buttonClick();
 function buttonClick() {
 $(".button-display").on("click", function() {
 
