@@ -1,5 +1,5 @@
 // variable called topics with an array of strings 
-var topics = ["France", "England", "Italy", "Guam", "Japan", "Greece"]
+var topics = ["France", "England", "Italy", "Guam", "Japan", "Sierra Leone","Greece", "Brazil", "Croatia", "Colombia", "Spain", "Mexico", "Denmark", "Argentina", "Nigeria", "Germany", "Australia"]
 
 for (var i = 0; i < topics.length; i++) {
     var topicsbtn = $("<button>");
@@ -61,6 +61,8 @@ $(".button-display").on("click", function() {
             gifDiv.addClass("imagediv");
             //prepending each gifDiv to the images container
             $("#images").prepend(gifDiv);
+
+            $("#images").css({ "border-style": "outset" });
           }
         });
     });

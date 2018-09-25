@@ -1,6 +1,4 @@
-body {
-    background-color: rgb(196, 213, 223);
-}
+
 
 .button-display {
     padding: 2px;
@@ -12,11 +10,11 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.button-display:hover {
+.button-display:hover, #submit:hover {
     cursor: pointer;
     background-color: rgb(22, 22, 94);
 }
-.button-display:focus {
+.button-display:focus, #submit:focus {
     outline: 0;
 }
 
@@ -33,23 +31,39 @@ body {
     background-color: rgb(122, 189, 231);
     border-radius:  15px 50px 15px 50px ;
     border: 2px solid rgb(62, 105, 133);
+    
+    
 }
 #addAnimal {
     width: 25%;
     float: right;
     margin-right: 20px;
+    background-color: rgb(219, 226, 231);
+    padding: 20px;
+    border-radius:  15px 50px 15px 50px ;
+    border-style: outset;
 }
 #images {
     width: 70%;
     float: left;
+    background-color: rgb(219, 226, 231);
+    border-radius:  15px 50px 15px 50px ;
+    
 }
 
-.gif {
+#buttons {
+    background-color:rgb(219, 226, 231);
+    margin-bottom: 20px;
+    border-bottom: outset;
+}
+
+.image {
     border-radius:  0px 0px 15px 50px ;
 }
 
 #addaplace {
     font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
 }
 #submit {
     font-family: 'Roboto Condensed', sans-serif;
