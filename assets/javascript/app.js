@@ -9,6 +9,7 @@ for (var i = 0; i < topics.length; i++) {
     $("#buttons").append(topicsbtn);
 }
 
+function buttonClick() {
 $(".button-display").on("click", function() {
 
     var place = $(this).attr("data-place");
@@ -47,10 +48,9 @@ $(".button-display").on("click", function() {
             var placeImage = $("<img>");
             //Adding an attribute to the images
             placeImage.attr("src", results[i].images.fixed_height_still.url);
-            placeImage.attr("data-still", results[i].images.fixed_height_still.url);
-            placeImage.attr("data-animate", results[i].images.fixed_height.url);
-            placeImage.attr("data-state", "still");
-            placeImage.addClass("gif");
+            placeImage.attr("data-still", results[i].images.fixed_height_still.url, "data-animate", results[i].images.fixed_height.url);
+            placeImage.attr("data-state", 'still')
+            placeImage.addClass("image");
             // prepending the placeImage to the gifDiv
             gifDiv.prepend(placeImage);
             
@@ -63,9 +63,10 @@ $(".button-display").on("click", function() {
           }
         });
     });
+  }
 
-    $(".gif").on("click", function() {
-        // 
+    $(".image").on("click", function() {
+        alert("hello");
         var state = $(this).attr("data-state");
         
         if (state === "still") {
@@ -77,20 +78,15 @@ $(".button-display").on("click", function() {
         }
       });
 
-      $("#submit").on("click", function() {
-          alert("hello!!");
+      $("#submit").on("click", function(event) {
           event.preventDefault();
-      var placeinput = $("#placeInput").val().trim();
-      var placesNew = [];
-      console.log(placesNew);
-      placesNew.push(placeinput);
-      
-      for (var i = 0; i = placesNew.length; i++) {
+          var placeinput = $("#placeInput").val().trim();
+          console.log(placeinput);
         var placebtn = $("<button>");
         placebtn.addClass("button-display");
-        placebtn.attr("data-place", placesNew);
-        placebtn.text(placesNew);
+        placebtn.attr("data-place", placeinput);
+        placebtn.text(placeinput);
         $("#buttons").append(placebtn);
-      }
+        buttonClick();
     });
       
