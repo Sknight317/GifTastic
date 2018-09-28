@@ -1,20 +1,26 @@
 // variable called topics with an array of strings 
 var topics = ["France", "England", "Italy", "Guam", "Japan", "Sierra Leone","Greece", "Brazil", "Croatia", "Colombia", "Spain", "Mexico", "Denmark", "Argentina", "Nigeria", "Germany", "Australia"]
 
+// for loop to append a button for each item in the topics array
 for (var i = 0; i < topics.length; i++) {
     var topicsbtn = $("<button>");
     topicsbtn.addClass("button-display");
     topicsbtn.attr("data-place", topics[i]);
+    // Changing the text of each button to be the text from each item in the topics array
     topicsbtn.text(topics[i]);
+    //Appending the buttons to the buttons div
     $("#buttons").append(topicsbtn);
 }
 
+// Calling the buttonclick function so that it runs
 buttonClick();
+
+//buttonClick function
 function buttonClick() {
 $(".button-display").on("click", function() {
-
+  //Creating a variable called place
     var place = $(this).attr("data-place");
-    //variable set to the api and api key
+    //variable set to the api and api key; putting place variable inside the queryurl so that when the usually clicks on a button, the info gets pulled from the API
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + place + "&api_key=2oXigIBYtAC0LfUzZI2oRPnCWUCUQ2ng&limit=10";
 
     
@@ -49,7 +55,9 @@ $(".button-display").on("click", function() {
             var placeImage = $("<img>");
             //Adding an attribute to the images
             placeImage.attr("src", results[i].images.fixed_height_still.url);
+            //Adding a data attribute for the still gif
             placeImage.attr("data-still", results[i].images.fixed_height_still.url); 
+            //Adding a data attribute for the animated gif
             placeImage.attr("data-animate", results[i].images.fixed_height.url);
             placeImage.attr("data-state", 'still')
             placeImage.addClass("image");
@@ -66,7 +74,7 @@ $(".button-display").on("click", function() {
             $("#images").prepend(gifDiv);
             // Adding a border style to the images div
             $("#images").css({ "border-style": "outset" });
-            // 
+             
           
            
 
@@ -78,10 +86,10 @@ $(".button-display").on("click", function() {
   }
   
     
-
+  // onclick function for the dynamically created image divs 
     $(document).on("click", ".image", function() {
         var state = $(this).attr("data-state");
-        
+        // To change the gif from still to animate
         if (state === "still") {
           $(this).attr("src", $(this).attr("data-animate"));
           $(this).attr("data-state", "animate");
@@ -90,16 +98,21 @@ $(".button-display").on("click", function() {
           $(this).attr("data-state", "still");
         }
       });
-
+      // onclick function for the submit button
       $("#submit").on("click", function(event) {
+        //Prevents the automatic default; and prevents the page from automatically reloading
           event.preventDefault();
+          //create a variable and set it equal to the information that is retreived from the submit button, when the user presses submit
           var placeinput = $("#placeInput").val().trim();
           console.log(placeinput);
+        //Setting a varible equal to a new button
         var placebtn = $("<button>");
         placebtn.addClass("button-display");
         placebtn.attr("data-place", placeinput);
         placebtn.text(placeinput);
+        // appending these buttons into the buttons div; this is going to happen when the user clicks submit
         $("#buttons").append(placebtn);
+        //Calling the buttonClick function; so that when these new buttons are clicked; they will also retreive the information from the API
         buttonClick();
     });
       
